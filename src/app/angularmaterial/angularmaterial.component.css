@@ -1,0 +1,16 @@
+.custom-class{
+    color: aqua;
+    
+}
+
+.mainmenu .mat-menu-item{
+    color: cadetblue;
+}
+
+.colormenu .mat-menu-item{
+    color: brown;
+}
+
+.mainmenu{
+    background-color: yellow;
+}

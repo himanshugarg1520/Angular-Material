@@ -1,0 +1,340 @@
+<h1>Angular Material List</h1>
+
+<h1>MatTab</h1>
+
+<mat-tab-group animationDuration="1500ms" mat-align-tabs="start">
+    <mat-tab label="Home">
+        <p>Go to the Profile Section</p>
+    </mat-tab>
+    <mat-tab label="Profile">
+        <p>Shows the user profile</p>
+    </mat-tab>
+    <mat-tab label="Setting">
+        <p>Show and Edit the User Setting details</p>
+    </mat-tab>
+</mat-tab-group>
+
+<br><br>
+
+
+
+<h1>Button</h1>
+
+<button mat-raised-button color="primary">Click Me!!</button>
+<br>
+<button mat-button color="accent">Flat Button</button>
+
+<br>
+<button mat-icon-button>
+    <mat-icon>Favourte</mat-icon>
+</button>
+<br>
+
+<button mat-fab>
+    <mat-icon>Add</mat-icon>
+</button>
+
+<button mat-mini-fab>
+    <mat-icon>Push</mat-icon>
+</button>
+
+<br>
+<!-- button click event -->
+
+<button mat-raised-button (click)="onclick()" color="primary">Click Event</button>
+
+
+<br>
+<br>
+
+
+<h1>Mat Select</h1>
+
+<mat-form-field appearance="fill">
+    <mat-label>Choose Favourite Food</mat-label>
+    <mat-select [(ngModel)]="SelectedFood">
+        <mat-option *ngFor="let item of foods" [value]="item.value">
+            {{item.viewvalue}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+
+<!-- Select Multiple Attribute -->
+
+<h1>Mat Select Multiple Attribute</h1>
+
+<mat-form-field appearance="outline">
+    <mat-label>Selected Favourite Place</mat-label>
+    <mat-select [(ngModel)]="SelectedFood" multiple>
+        <mat-option *ngFor="let item of Places" [value]="item.value" [disabled]="item.disabled">
+            {{item.viewvalue}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<br>
+<br>
+
+
+<!-- Mat Input -->
+
+<h1>Mat Input</h1>
+
+<mat-form-field>
+    <mat-label>Enter Your Name</mat-label>
+    <input matInput type="name" placeholder="Name" [(ngModel)]="name">
+</mat-form-field>
+<p>Your Name is: {{name}}</p>
+
+
+<mat-form-field>
+    <mat-label>Enter Password</mat-label>
+    <input matInput type="password" placeholder="Password" [(ngModel)]="password" #passwordInput="ngModel" required password>
+    <mat-error *ngIf="passwordInput.hasError(password) && !passwordInput.hasError('required')">
+        Password Required
+    </mat-error>
+</mat-form-field>
+
+
+<mat-form-field>
+    <mat-label>Enter Email</mat-label>
+    <input matInput type="email" placeholder="Email" [(ngModel)]="email" #emailInput="ngModel" required email>
+    <mat-error *ngIf="emailInput.hasError(email) && !emailInput.hasError('required')">
+        Enter Valid Email
+    </mat-error>
+</mat-form-field>
+<p>Email is: {{email}}</p>
+
+
+<br>
+<br>
+<br>
+
+<!-- Mat Card in Angular Material -->
+
+<h1>Mat Card</h1>
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Card Title</mat-card-title>
+        <mat-card-subtitle>Card SubTitle</mat-card-subtitle>
+    </mat-card-header>
+    <!-- <img mat-card-image src="" alt="placeholder image"> -->
+    <mat-card-content>
+        This is Simple Example of Angular Material Mat Card 
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>LiKe</button>
+        <button mat-button>Share</button>
+    </mat-card-actions>
+    <mat-card-footer>
+        <p>Footer Card Shows Here</p>
+    </mat-card-footer>
+    
+</mat-card>
+
+<br><br>
+<br>
+
+
+<!-- Mat Card with multiple section -->
+<h2>Mat Card With Multiple Section</h2>
+<mat-card>
+
+    <mat-card-header>
+        <mat-card-title>Card Multiple Section</mat-card-title>
+        <mat-card-subtitle>Subtitle Here</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <h3>Section 1</h3>
+        <p>Mat Card With Section Content 1</p>
+    </mat-card-content>
+    <mat-card-content>
+        <h3>Section 2</h3>
+        <p>Mat Card With Section Content 2</p>
+    </mat-card-content>
+
+    <mat-card-actions class="custom-class">
+        <button mat-button style="color :brown; border-radius: 3px;">Like</button>
+        <button mat-button style="color: brown; border-radius: 3px;">Share</button>
+    </mat-card-actions>
+
+</mat-card>
+
+<br><br>
+<br>
+
+
+
+<!-- Angular Material CheckBox Example -->
+<h1>Mat Checkbox</h1>
+
+<mat-checkbox [(ngModel)]="isChecked">Check Me</mat-checkbox>
+<p>Checkbox is {{isChecked ? 'Checked' : 'UnChecked'}}</p>
+<br>
+<mat-checkbox [(ngModel)]="Checkedcheckbox">CheckBox Check</mat-checkbox>
+<p>Checkbox is {{Checkedcheckbox ? 'Checked CheckBox' : 'UnChecked CheckBox'}}</p>
+<br>
+<mat-checkbox [(ngModel)]="isInterminate" indeterminate="true">Checkbox Intermmediate</mat-checkbox>
+<p>CheckBox Intermmedite {{isInterminate ? 'Manually Checked' : 'Unchecked'}}</p>
+
+<br><br>
+<br>
+<!-- select multiple checkboxes  -->
+<h1>Mat Multiple Checkbox</h1>
+
+<mat-checkbox color="primary" [(ngModel)]="option1">Option 1</mat-checkbox>
+<mat-checkbox color="accent" [(ngModel)]="option2">Option 2</mat-checkbox>
+<mat-checkbox color="warm" [(ngModel)]="option3">Option 3</mat-checkbox>
+<mat-checkbox color="accent" [(ngModel)]="option4" disabled>Option 4</mat-checkbox>
+<br>
+<h3>Selected Lists</h3>
+<ul>
+    <li *ngIf="option1">Option1</li>
+    <li *ngIf="option2">Option2</li>
+    <li *ngIf="option3">Option3</li>
+    <li *ngIf="option4">Option4</li>
+</ul>
+
+
+<br><br>
+<br>
+
+<!-- Mat dialog in Angular -->
+
+<h1>Mat Dialog</h1>
+<button mat-button (click)="opendialog()">Open Dialog</button>
+
+
+<!-- Mat FormField Example -->
+<h1>Mat FormField</h1>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="myForm">
+
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Enter Your Name" formControlName="name" required>
+        <mat-error *ngIf="myForm.get('name').hasError('required')">Name is Required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Favourite Food</mat-label>
+        <mat-select formControlName="food" required>
+            <mat-option value="pizza">Pizza</mat-option>
+            <mat-option value="burger">Burger</mat-option>
+            <mat-option value="momos">Momos</mat-option>
+        </mat-select>
+        <mat-error *ngIf="myForm.get('food').hasError('required')">Select Food is Required</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+</form>
+
+
+<!-- Mat Menu Example -->
+<h1>Mat Menu</h1>
+<button mat-button [matMenuTriggerFor]="menu">Full Menu</button>
+<mat-menu #menu="matMenu">
+    <!-- menu defination -->
+    <button mat-menu-item>Option1</button>
+    <button mat-menu-item>Option2</button>
+    <button mat-menu-item>Option3</button>
+</mat-menu>
+
+<br>
+<br>
+
+<!-- Main menu another example -->
+
+<button mat-button [matMenuTriggerFor]="mainmenu">Main Menu</button>
+
+<mat-menu #mainmenu="matMenu" class="mainmenu">
+    <button mat-menu-item>Home</button>
+    <button mat-menu-item [matMenuTriggerFor]="submenu">Services</button>
+    <button mat-menu-item>About</button>
+</mat-menu>
+<mat-menu #submenu="matMenu" class="mainmenu">
+    <button mat-menu-item>Consulting</button>
+    <button mat-menu-item>Marketing</button>
+    <button mat-menu-item>Development</button>
+</mat-menu>
+
+
+<!-- Menu with Icons -->
+
+<button mat-button [matMenuTriggerFor]="mainmenuicon">Menu With Icon</button>
+<mat-menu #mainmenuicon="matMenu" class="colormenu">
+    <button mat-menu-item>
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>build</mat-icon>
+        <span>Services</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>phone</mat-icon>
+        <span>Contact</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>info</mat-icon>
+        <span>About</span>
+    </button>
+</mat-menu>
+
+
+
+
+<button mat-button [mat-menu-trigger-for]="menuicon">Menu Icon</button>
+<mat-menu #menuicon="matMenu">
+    <button mat-menu-item>
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>
+            build
+        </mat-icon>
+        <span>Services</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>
+            info
+        </mat-icon>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>
+            phone
+        </mat-icon>
+        <span>Contact</span>
+    </button>
+</mat-menu>
+
+
+<!-- Mat Progress Spinner -->
+
+<h1>Progress Spinner</h1>
+
+<!-- Show Continous spinning -->
+<h2>Interminate Spinner</h2>       
+<mat-spinner></mat-spinner>
+
+<!-- Show Spinning on basis of percentage -->
+<h2>Determinate Spinner</h2>
+<mat-progress-spinner [value]="progress"></mat-progress-spinner>
+
+
+<!-- Custamize Spinner -->
+<h2>Custamize Interminate Spinner</h2>
+<mat-spinner diameter="70" strokeWidth="5" color="primary"></mat-spinner>
+<br>
+<h2>Custamize Determinate Spinner</h2>
+<mat-spinner [value]="progress1" diameter="100" strokeWidth="10" color="accent"></mat-spinner>
+
+<!-- Dynamic Spinner -->
+<h2>Create Dynamic Spinner</h2>
+
+<mat-progress-spinner [value]="progress2" diameter="80" strokeWidth="8" color="primary"></mat-progress-spinner>
+<p>Progress: {{ progress2 }}%</p>
